@@ -3,126 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Derby: The Ace Race</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<title>Cyber Derby — The Ace Race</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
 
-  <!-- TITLE -->
-  <div id="title-bar">
-    <div class="orn tl"></div>
-    <div class="orn tr"></div>
-    <h1>Cyber Derby: The Ace Race</h1>
+<div id="wrap">
+
+  <!-- TITLE ROW -->
+  <div id="hdr">
+    <span id="hdr-suits">♠ ♥ ♦ ♣</span>
+    <h1>Cyber Derby — The Ace Race</h1>
+    <div id="hdr-right">
+      <div><span id="hdr-bal-lbl">BALANCE</span><br><span id="hdr-bal">$1,000</span></div>
+      <div id="round-badge">ROUND 1</div>
+    </div>
   </div>
 
-  <!-- TOP ROW -->
-  <div id="top-area">
-    <div id="deck-section">
-      <div class="slabel">◈ Draw Deck</div>
-      <div class="deck-wrap">
-        <div class="deck-crd"><div class="deck-face">◆</div></div>
-        <div class="deck-crd"><div class="deck-face">◆</div></div>
-        <div class="deck-crd"><div class="deck-face">◆</div></div>
-        <div class="deck-crd"><div class="deck-face">◆</div></div>
-        <div class="deck-crd"><div class="deck-face">◆</div></div>
-      </div>
-      <div id="deck-count">48 CARDS</div>
-    </div>
+  <!-- MAIN 3-COLUMN -->
+  <div id="main">
 
-    <div id="drawn-center">
-      <div class="slabel" style="text-align:center">◈ Last Drawn</div>
-      <div id="dcw">
-        <div id="dcard">
-          <div class="dface" id="dface">
-            <div class="dc-corner" id="dtl"></div>
-            <div class="dc-mid" id="dmid">◆</div>
-            <div class="dc-corner bot" id="dbr"></div>
+    <!-- LEFT -->
+    <div id="left">
+
+      <div class="panel" style="display:flex;flex-direction:column;align-items:center;gap:5px">
+        <span class="plbl">◈ Draw Deck</span>
+        <div id="deck-wrap">
+          <div class="dc"><div class="dcf">◆</div></div>
+          <div class="dc"><div class="dcf">◆</div></div>
+          <div class="dc"><div class="dcf">◆</div></div>
+          <div class="dc"><div class="dcf">◆</div></div>
+          <div class="dc"><div class="dcf">◆</div></div>
+        </div>
+        <div id="dcnt">48 CARDS</div>
+      </div>
+
+      <div class="panel" style="display:flex;flex-direction:column;align-items:center;gap:3px">
+        <span class="plbl">◈ Last Drawn</span>
+        <div id="dcw-wrap">
+          <div id="dcard">
+            <div class="df" id="dface">
+              <div class="dfc" id="dtl"></div>
+              <div class="dfm" id="dmid">◆</div>
+              <div class="dfc bot" id="dbr"></div>
+            </div>
+            <div class="db">◆</div>
           </div>
-          <div class="dback">◆</div>
+        </div>
+        <div id="dlbl">AWAITING...</div>
+      </div>
+
+      <div class="panel">
+        <span class="plbl">◈ Trap Cards</span>
+        <div id="trap-cards"></div>
+        <div id="trap-rem" style="font-family:var(--fm);font-size:.44rem;color:var(--t2);text-align:center;letter-spacing:.1em;margin-top:3px">5 REMAINING</div>
+      </div>
+
+      <div class="panel" id="hist" style="flex:1;min-height:0">
+        <span class="plbl">◈ Last 10 Draws</span>
+        <div id="hcards"></div>
+        <div id="hstats" style="display:flex;gap:8px;margin-top:4px">
+          <div class="hs"><span class="hs-l">♥+♦</span><span class="hs-v r" id="hsr">0</span></div>
+          <div class="hs"><span class="hs-l">♠+♣</span><span class="hs-v c" id="hsc">0</span></div>
         </div>
       </div>
-      <div id="dlabel">AWAITING DRAW...</div>
+
     </div>
 
-    <div id="trap-section">
-      <div class="slabel">◈ Trap Cards</div>
-      <div id="trap-cards"></div>
-      <div id="trap-rem">5 REMAINING</div>
-    </div>
-  </div>
-
-  <!-- HISTORY -->
-  <div id="hist-row">
-    <span class="hlbl">◈ LAST<br>10 DRAWS</span>
-    <div id="hist-cards"></div>
-    <div id="hist-stats">
-      <div class="hs"><span class="hs-l">♥+♦</span><span class="hs-v r" id="hsr">0</span></div>
-      <div class="hs"><span class="hs-l">♠+♣</span><span class="hs-v c" id="hsc">0</span></div>
-      <div class="hs"><span class="hs-l">ROUND</span><span class="hs-v g" id="hsd">1</span></div>
-    </div>
-  </div>
-
-  <!-- RACETRACK -->
-  <div id="track">
-    <div class="t-hdr">
-      <span class="t-title">♚ The Royal Racetrack ♚</span>
-      <span id="t-stats">CARDS REMAINING: 48</span>
-    </div>
-    <div id="step-row"></div>
-    <div id="lanes"></div>
-  </div>
-
-  <!-- BETTING -->
-  <div id="bet-section">
-    <div class="bet-hdr">◈ Place Your Royal Wager ◈</div>
-    <div id="suit-bets"></div>
-    <div class="gold-div"></div>
-    <div id="bot-bar">
-      <div id="chips">
-        <span class="slabel" style="margin:0 6px 0 0">CHIPS:</span>
-        <div class="chip sel" data-v="1">$1</div>
-        <div class="chip" data-v="5">$5</div>
-        <div class="chip" data-v="10">$10</div>
-        <div class="chip" data-v="50">$50</div>
+    <!-- CENTER: TRACK -->
+    <div id="center">
+      <div id="track">
+        <div class="thdr">
+          <span class="ttl">♚ Royal Racetrack ♚</span>
+          <span id="tstats">CARDS: 48</span>
+        </div>
+        <div id="steprow"></div>
+        <div id="lanes"></div>
       </div>
-      <div id="bal-box">
-        <div id="bal-lbl">Balance</div>
-        <div id="bal-amt">$1,000</div>
-      </div>
-      <button id="go-btn" disabled>▶ START RACE</button>
     </div>
-  </div>
+
+    <!-- RIGHT: BETS -->
+    <div id="right">
+      <div id="betsec">
+
+        <!-- header -->
+        <div class="bhdr">◈ Place Your Wager ◈</div>
+
+        <!-- 4 suit bet cards — fixed 2x2 grid -->
+        <div id="suit-bets"></div>
+
+        <!-- chips row — fixed below bets -->
+        <div class="gdiv"></div>
+        <div id="chips">
+          <div class="chip sel" data-v="1">$1</div>
+          <div class="chip" data-v="5">$5</div>
+          <div class="chip" data-v="10">$10</div>
+          <div class="chip" data-v="50">$50</div>
+        </div>
+
+        <!-- spacer pushes balance + button to bottom -->
+        <div style="flex:1;min-height:0"></div>
+
+        <!-- balance centered + start button -->
+        <div id="balrow">
+          <div id="balbox">
+            <div id="bal-lbl">BALANCE</div>
+            <div id="bal">$1,000</div>
+          </div>
+          <button id="gobtn" disabled>▶ START RACE</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /main -->
 
   <!-- STATUS -->
-  <div id="status-bar">
-    <span id="status-msg">◈ SELECT A CHIP, THEN CLICK A SUIT TO PLACE YOUR BET</span>
-    <span id="round-lbl">ROUND 1</span>
+  <div id="statusbar">
+    <span id="statusmsg">◈ SELECT A CHIP THEN CLICK A SUIT TO BET</span>
+    <span id="rndbadge">ROUND 1</span>
   </div>
 
-</div>
+</div><!-- /wrap -->
 
-<!-- RESULT OVERLAY -->
-<div id="result-ov">
-  <div id="result-panel">
-    <div id="r-title">WIN!</div>
-    <div id="r-sub"></div>
-    <div id="r-pay"></div>
-    <div id="r-extra"></div>
-    <div id="r-sess"></div>
-    <div id="r-countdown">NEXT RACE IN 3...</div>
+<!-- ═══ OVERLAYS — outside everything ═══ -->
+<div id="resov">
+  <div id="respanel">
+    <div id="rtitle">WIN!</div>
+    <div id="rsub"></div>
+    <div id="rpay"></div>
+    <div id="rextra"></div>
+    <div id="rsess"></div>
+    <div id="rcd">NEXT RACE IN 3...</div>
   </div>
 </div>
 
-<!-- TRAP POPUP -->
-<div id="trap-pop">
-  <div class="tp-ttl">⚠ TRAP CARD ACTIVATED ⚠</div>
-  <div id="tp-sym">♠</div>
-  <div id="tp-fx"></div>
+<div id="trappop">
+  <div class="tptl">⚠ TRAP CARD ⚠</div>
+  <div id="tpsym">♠</div>
+  <div id="tpfx"></div>
 </div>
 
-<div id="fly-ov"></div>
+<div id="flyov"></div>
 
 <script src="game.js"></script>
 </body>
