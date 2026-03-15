@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Derby: The Ace Race</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- TITLE -->
+  <div id="title-bar">
+    <div class="orn tl"></div>
+    <div class="orn tr"></div>
+    <h1>Cyber Derby: The Ace Race</h1>
+  </div>
+
+  <!-- TOP ROW -->
+  <div id="top-area">
+    <div id="deck-section">
+      <div class="slabel">◈ Draw Deck</div>
+      <div class="deck-wrap">
+        <div class="deck-crd"><div class="deck-face">◆</div></div>
+        <div class="deck-crd"><div class="deck-face">◆</div></div>
+        <div class="deck-crd"><div class="deck-face">◆</div></div>
+        <div class="deck-crd"><div class="deck-face">◆</div></div>
+        <div class="deck-crd"><div class="deck-face">◆</div></div>
+      </div>
+      <div id="deck-count">48 CARDS</div>
+    </div>
+
+    <div id="drawn-center">
+      <div class="slabel" style="text-align:center">◈ Last Drawn</div>
+      <div id="dcw">
+        <div id="dcard">
+          <div class="dface" id="dface">
+            <div class="dc-corner" id="dtl"></div>
+            <div class="dc-mid" id="dmid">◆</div>
+            <div class="dc-corner bot" id="dbr"></div>
+          </div>
+          <div class="dback">◆</div>
+        </div>
+      </div>
+      <div id="dlabel">AWAITING DRAW...</div>
+    </div>
+
+    <div id="trap-section">
+      <div class="slabel">◈ Trap Cards</div>
+      <div id="trap-cards"></div>
+      <div id="trap-rem">5 REMAINING</div>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div id="hist-row">
+    <span class="hlbl">◈ LAST<br>10 DRAWS</span>
+    <div id="hist-cards"></div>
+    <div id="hist-stats">
+      <div class="hs"><span class="hs-l">♥+♦</span><span class="hs-v r" id="hsr">0</span></div>
+      <div class="hs"><span class="hs-l">♠+♣</span><span class="hs-v c" id="hsc">0</span></div>
+      <div class="hs"><span class="hs-l">ROUND</span><span class="hs-v g" id="hsd">1</span></div>
+    </div>
+  </div>
+
+  <!-- RACETRACK -->
+  <div id="track">
+    <div class="t-hdr">
+      <span class="t-title">♚ The Royal Racetrack ♚</span>
+      <span id="t-stats">CARDS REMAINING: 48</span>
+    </div>
+    <div id="step-row"></div>
+    <div id="lanes"></div>
+  </div>
+
+  <!-- BETTING -->
+  <div id="bet-section">
+    <div class="bet-hdr">◈ Place Your Royal Wager ◈</div>
+    <div id="suit-bets"></div>
+    <div class="gold-div"></div>
+    <div id="bot-bar">
+      <div id="chips">
+        <span class="slabel" style="margin:0 6px 0 0">CHIPS:</span>
+        <div class="chip sel" data-v="1">$1</div>
+        <div class="chip" data-v="5">$5</div>
+        <div class="chip" data-v="10">$10</div>
+        <div class="chip" data-v="50">$50</div>
+      </div>
+      <div id="bal-box">
+        <div id="bal-lbl">Balance</div>
+        <div id="bal-amt">$1,000</div>
+      </div>
+      <button id="go-btn" disabled>▶ START RACE</button>
+    </div>
+  </div>
+
+  <!-- STATUS -->
+  <div id="status-bar">
+    <span id="status-msg">◈ SELECT A CHIP, THEN CLICK A SUIT TO PLACE YOUR BET</span>
+    <span id="round-lbl">ROUND 1</span>
+  </div>
+
+</div>
+
+<!-- RESULT OVERLAY -->
+<div id="result-ov">
+  <div id="result-panel">
+    <div id="r-title">WIN!</div>
+    <div id="r-sub"></div>
+    <div id="r-pay"></div>
+    <div id="r-extra"></div>
+    <div id="r-sess"></div>
+    <div id="r-countdown">NEXT RACE IN 3...</div>
+  </div>
+</div>
+
+<!-- TRAP POPUP -->
+<div id="trap-pop">
+  <div class="tp-ttl">⚠ TRAP CARD ACTIVATED ⚠</div>
+  <div id="tp-sym">♠</div>
+  <div id="tp-fx"></div>
+</div>
+
+<div id="fly-ov"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
